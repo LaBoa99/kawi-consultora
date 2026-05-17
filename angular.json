@@ -23,11 +23,19 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
+            ],
+            "polyfills": [
+              "zone.js"
             ],
             "styles": [
               "src/styles.scss"

@@ -1,0 +1,47 @@
+<nav class="nav" [ngClass]="{ 'nav--open': menuOpen() }">
+  <div class="container-kawi nav-inner">
+
+    <a routerLink="/" class="nav-brand" aria-label="KAWI — Inicio" (click)="closeMenu()">
+      <span class="nav-brand-logo" aria-hidden="true"></span>
+      <span class="nav-brand-text">kawi</span>
+      <span class="nav-brand-tag">por Gael R.</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#servicios" class="nav-link" (click)="closeMenu()">Servicios</a></li>
+      <li><a href="#casos"     class="nav-link" (click)="closeMenu()">Casos</a></li>
+      <li><a href="#proceso"   class="nav-link" (click)="closeMenu()">Proceso</a></li>
+      <li><a href="#sobre"     class="nav-link" (click)="closeMenu()">Sobre</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#contacto" class="btn-kawi btn-kawi--primary nav-cta" (click)="closeMenu()">
+        Hablar conmigo
+      </a>
+
+      <button
+        class="nav-hamburger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Abrir menú de navegación"
+        aria-controls="nav-mobile-menu"
+      >
+        <span class="nav-hamburger-line"></span>
+        <span class="nav-hamburger-line"></span>
+        <span class="nav-hamburger-line"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Menú mobile desplegable -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu" [ngClass]="{ 'nav-mobile-menu--open': menuOpen() }">
+    <ul class="nav-mobile-links" role="list">
+      <li><a href="#servicios" class="nav-mobile-link" (click)="closeMenu()">Servicios</a></li>
+      <li><a href="#casos"     class="nav-mobile-link" (click)="closeMenu()">Casos</a></li>
+      <li><a href="#proceso"   class="nav-mobile-link" (click)="closeMenu()">Proceso</a></li>
+      <li><a href="#sobre"     class="nav-mobile-link" (click)="closeMenu()">Sobre</a></li>
+      <li><a href="#contacto"  class="nav-mobile-link nav-mobile-link--cta" (click)="closeMenu()">Hablar conmigo →</a></li>
+    </ul>
+  </div>
+</nav>

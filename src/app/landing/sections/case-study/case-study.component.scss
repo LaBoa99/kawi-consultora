@@ -1,0 +1,263 @@
+// src/app/landing/sections/case-study/case-study.component.scss
+
+@use 'styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.case-study {
+  border-top: 1px solid $border-light;
+}
+
+
+// ---------- HEADER STRIP OSCURO -------------------------------------------
+
+.case-study-header {
+  background: $surface-dark;
+  padding-block: 0.75rem;
+}
+
+.case-study-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.case-study-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;     // 11px
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $text-inverse;
+  font-weight: 500;
+}
+
+.case-study-meta {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+
+// ---------- CUERPO PRINCIPAL ----------------------------------------------
+
+.case-study-body {
+  padding-block: $section-padding-y-md;
+
+  @media (min-width: $bp-md) {
+    padding-block: $section-padding-y;
+  }
+}
+
+
+// ---------- HEADLINE ------------------------------------------------------
+
+.case-study-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: $text-primary;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  text-wrap: balance;
+
+  @media (min-width: $bp-md) {
+    margin-bottom: 3rem;
+  }
+}
+
+.case-study-headline-emphasis {
+  color: $brand-primary;
+}
+
+
+// ---------- GRID PROBLEMA / SOLUCIÓN --------------------------------------
+
+.case-study-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.case-study-eyebrow {
+  margin-bottom: 1rem;
+  color: $text-tertiary;  // .eyebrow global ya aplica color pero reforzamos aquí
+}
+
+.case-study-text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;    // 15px
+  line-height: 1.65;
+  color: $text-secondary;
+  text-wrap: pretty;
+
+  & + & {
+    margin-top: 0.875rem;
+  }
+}
+
+.case-study-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+
+  li {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: $text-secondary;
+    padding-left: 1.25rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: $brand-primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+
+// ---------- STRIP DE NÚMEROS ----------------------------------------------
+
+.case-study-result {
+  background: $surface-secondary;
+  border-radius: $radius-lg;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.case-study-numbers {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.case-study-number {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.case-study-amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 4vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $text-primary;
+
+  &--highlight {
+    font-size: clamp(2rem, 6vw, 2.625rem);
+    color: $brand-primary;
+  }
+}
+
+.case-study-currency {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: $text-tertiary;
+  letter-spacing: 0.02em;
+}
+
+.case-study-arrow {
+  font-size: 1.5rem;
+  color: $text-tertiary;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+
+// ---------- DIVISOR ENTRE CASOS -------------------------------------------
+
+.case-study-divider {
+  height: 1px;
+  background: $border-light;
+  margin-inline: auto;
+  max-width: calc(100% - 2 * 1.25rem);
+
+  @media (min-width: $bp-md) {
+    max-width: calc(100% - 2 * 2rem);
+  }
+}
+
+
+// ---------- OUTCOMES (resultado cualitativo CASO 02) ----------------------
+
+.case-study-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.25rem;
+}
+
+.case-study-outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 7rem;
+}
+
+.case-study-outcome-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $brand-primary;
+}
+
+.case-study-outcome-label {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: $text-tertiary;
+  line-height: 1.4;
+}
+
+
+// ---------- QUOTE BLOCK ---------------------------------------------------
+
+.case-study-quote {
+  margin: 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid $brand-primary;
+
+  p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  cite {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 0.8125rem;   // 13px
+    color: $text-tertiary;
+    display: block;
+  }
+}
