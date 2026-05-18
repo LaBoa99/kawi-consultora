@@ -7,15 +7,39 @@
 }
 
 .cta-final {
-  background: $brand-primary;
+  background: linear-gradient(135deg, $brand-primary 0%, #0006e0 100%);
   padding-block: $section-padding-y-md;
+  position: relative;
+  overflow: hidden;
 
   @media (min-width: $bp-md) {
     padding-block: $section-padding-y;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 55%;
+    height: 180%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
 }
 
 .cta-final-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +56,34 @@
   max-width: 560px;
   text-wrap: balance;
   margin: 0;
+}
+
+.cta-final-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-final-btn--primary {
+  background: $surface-primary;
+  color: $brand-primary;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
+.cta-final-btn--secondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: $text-inverse;
+  }
 }
 
 .cta-final-sub {

@@ -2,10 +2,11 @@
 
 import { Component } from '@angular/core';
 import { ScrollRevealDirective } from '../../../shared/scroll-reveal.directive';
+import { CountUpDirective } from '../../../shared/count-up.directive';
 
 @Component({
   selector: 'app-case-study',
-  imports: [ScrollRevealDirective],
+  imports: [ScrollRevealDirective, CountUpDirective],
   templateUrl: './case-study.component.html',
   styleUrl: './case-study.component.scss',
 })

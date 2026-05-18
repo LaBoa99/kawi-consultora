@@ -49,22 +49,21 @@
       <p class="eyebrow case-study-eyebrow">El resultado</p>
       <div class="case-study-numbers">
         <div class="case-study-number">
-          <span class="case-study-amount">$13,000</span>
+          <span class="case-study-amount"
+                countUp [countTo]="13000" countPrefix="$" [countSeparator]="true"
+                [countDuration]="1200">$13,000</span>
           <span class="case-study-currency">MXN invertidos</span>
         </div>
         <span class="case-study-arrow" aria-hidden="true">→</span>
         <div class="case-study-number">
-          <span class="case-study-amount case-study-amount--highlight">$1,000,000+</span>
+          <span class="case-study-amount case-study-amount--highlight"
+                countUp [countTo]="1000000" countPrefix="$" countSuffix="+"
+                [countSeparator]="true" [countDuration]="1600">$1,000,000+</span>
           <span class="case-study-currency">MXN en ventas trackeadas</span>
         </div>
       </div>
     </div>
 
-    <blockquote class="case-study-quote" scrollReveal [revealDelay]="0">
-      <!-- TODO: cita real del dueño de Zeta — pendiente de pedírsela -->
-      <p>"[Cita real del dueño de Zeta — pendiente de pedírsela.]"</p>
-      <cite>Dueño, Refaccionaria Zeta · Tala, Jalisco</cite>
-    </blockquote>
 
   </div>
 
@@ -119,11 +118,15 @@
       <p class="eyebrow case-study-eyebrow">El resultado</p>
       <div class="case-study-outcomes">
         <div class="case-study-outcome">
-          <span class="case-study-outcome-value">1,400+</span>
+          <span class="case-study-outcome-value"
+                countUp [countTo]="1400" countSuffix="+"
+                [countSeparator]="true" [countDuration]="1400">1,400+</span>
           <span class="case-study-outcome-label">socios digitalizados desde cero</span>
         </div>
         <div class="case-study-outcome">
-          <span class="case-study-outcome-value">100%</span>
+          <span class="case-study-outcome-value"
+                countUp [countTo]="100" countSuffix="%"
+                [countDuration]="900">100%</span>
           <span class="case-study-outcome-label">de la operación en digital</span>
         </div>
         <div class="case-study-outcome">
@@ -133,11 +136,6 @@
       </div>
     </div>
 
-    <blockquote class="case-study-quote" scrollReveal [revealDelay]="0">
-      <!-- TODO: cita real del cliente de Mutual Guadalupana — pendiente de pedírsela -->
-      <p>"[Cita real del cliente — pendiente de pedírsela.]"</p>
-      <cite>Mutual Guadalupana A.C. · Tala, Jalisco</cite>
-    </blockquote>
 
   </div>
 

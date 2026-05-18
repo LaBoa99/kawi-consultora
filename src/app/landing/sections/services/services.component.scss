@@ -51,14 +51,27 @@
   border-radius: $radius-xl;
   padding: 1.75rem;
   background: $surface-primary;
-  transition: box-shadow $transition-base;
+  transition: box-shadow $transition-base, transform $transition-base, border-color $transition-base;
 
   &:hover {
     box-shadow: $shadow-md;
+    transform: translateY(-3px);
+    border-color: $border-strong;
+
+    .services-card-icon {
+      background: $brand-primary-soft;
+      color: $brand-primary;
+    }
   }
 
   &--featured {
     border: 2px solid $brand-primary;
+    background: linear-gradient(145deg, $surface-primary 55%, rgba(240, 241, 255, 0.55) 100%);
+
+    &:hover {
+      border-color: $brand-primary-hover;
+      box-shadow: 0 8px 24px rgba(3, 11, 252, 0.1);
+    }
   }
 }
 
@@ -87,6 +100,7 @@
   justify-content: center;
   margin-bottom: 1.25rem;
   color: $text-primary;
+  transition: background $transition-base, color $transition-base;
 
   .services-card--featured & {
     background: $brand-primary-soft;

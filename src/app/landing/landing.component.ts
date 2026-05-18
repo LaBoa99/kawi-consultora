@@ -8,6 +8,7 @@ import { ServicesComponent } from './sections/services/services.component';
 import { ProcessComponent } from './sections/process/process.component';
 import { AboutGaelComponent } from './sections/about-gael/about-gael.component';
 import { CtaFinalComponent } from './sections/cta-final/cta-final.component';
+import { FooterComponent } from './sections/footer/footer.component';
 
 @Component({
   selector: 'app-landing',
@@ -19,6 +20,7 @@ import { CtaFinalComponent } from './sections/cta-final/cta-final.component';
     ProcessComponent,
     AboutGaelComponent,
     CtaFinalComponent,
+    FooterComponent,
   ],
   template: `
     <app-nav />
@@ -30,6 +32,7 @@ import { CtaFinalComponent } from './sections/cta-final/cta-final.component';
       <app-about-gael />
       <app-cta-final />
     </main>
+    <app-footer />
   `,
   styles: `
     :host {

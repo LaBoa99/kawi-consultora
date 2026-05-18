@@ -157,10 +157,20 @@ p {
   font-size: 0.875rem;          // 14px
   font-weight: 500;
   border-radius: $radius-md;
-  transition: $transition-base;
+  transition: background $transition-base, border-color $transition-base, transform $transition-fast, box-shadow $transition-fast;
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 
   &--primary {
     background: $brand-primary;
@@ -168,6 +178,7 @@ p {
 
     &:hover {
       background: $brand-primary-hover;
+      box-shadow: 0 4px 14px rgba(3, 11, 252, 0.25);
     }
   }
 
@@ -188,6 +199,7 @@ p {
 
     &:hover {
       background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     }
   }
 }

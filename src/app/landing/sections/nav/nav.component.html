@@ -1,21 +1,20 @@
-<nav class="nav" [ngClass]="{ 'nav--open': menuOpen() }">
+<nav class="nav" [ngClass]="{ 'nav--open': menuOpen(), 'nav--scrolled': scrolled() }">
   <div class="container-kawi nav-inner">
 
     <a routerLink="/" class="nav-brand" aria-label="KAWI — Inicio" (click)="closeMenu()">
       <span class="nav-brand-logo" aria-hidden="true"></span>
       <span class="nav-brand-text">kawi</span>
-      <span class="nav-brand-tag">por Gael R.</span>
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="#servicios" class="nav-link" (click)="closeMenu()">Servicios</a></li>
-      <li><a href="#casos"     class="nav-link" (click)="closeMenu()">Casos</a></li>
-      <li><a href="#proceso"   class="nav-link" (click)="closeMenu()">Proceso</a></li>
-      <li><a href="#sobre"     class="nav-link" (click)="closeMenu()">Sobre</a></li>
+      <li><a href="#servicios" class="nav-link" [class.nav-link--active]="isActive('servicios')" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
+      <li><a href="#casos"     class="nav-link" [class.nav-link--active]="isActive('casos')"     (click)="onNavClick($event, 'casos')">Casos</a></li>
+      <li><a href="#proceso"   class="nav-link" [class.nav-link--active]="isActive('proceso')"   (click)="onNavClick($event, 'proceso')">Proceso</a></li>
+      <li><a href="#sobre"     class="nav-link" [class.nav-link--active]="isActive('sobre')"     (click)="onNavClick($event, 'sobre')">Sobre</a></li>
     </ul>
 
     <div class="nav-actions">
-      <a href="#contacto" class="btn-kawi btn-kawi--primary nav-cta" (click)="closeMenu()">
+      <a href="#contacto" class="btn-kawi btn-kawi--primary nav-cta" (click)="onNavClick($event, 'contacto')">
         Hablar conmigo
       </a>
 
@@ -37,11 +36,11 @@
   <!-- Menú mobile desplegable -->
   <div class="nav-mobile-menu" id="nav-mobile-menu" [ngClass]="{ 'nav-mobile-menu--open': menuOpen() }">
     <ul class="nav-mobile-links" role="list">
-      <li><a href="#servicios" class="nav-mobile-link" (click)="closeMenu()">Servicios</a></li>
-      <li><a href="#casos"     class="nav-mobile-link" (click)="closeMenu()">Casos</a></li>
-      <li><a href="#proceso"   class="nav-mobile-link" (click)="closeMenu()">Proceso</a></li>
-      <li><a href="#sobre"     class="nav-mobile-link" (click)="closeMenu()">Sobre</a></li>
-      <li><a href="#contacto"  class="nav-mobile-link nav-mobile-link--cta" (click)="closeMenu()">Hablar conmigo →</a></li>
+      <li><a href="#servicios" class="nav-mobile-link" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
+      <li><a href="#casos"     class="nav-mobile-link" (click)="onNavClick($event, 'casos')">Casos</a></li>
+      <li><a href="#proceso"   class="nav-mobile-link" (click)="onNavClick($event, 'proceso')">Proceso</a></li>
+      <li><a href="#sobre"     class="nav-mobile-link" (click)="onNavClick($event, 'sobre')">Sobre</a></li>
+      <li><a href="#contacto"  class="nav-mobile-link nav-mobile-link--cta" (click)="onNavClick($event, 'contacto')">Hablar conmigo →</a></li>
     </ul>
   </div>
 </nav>

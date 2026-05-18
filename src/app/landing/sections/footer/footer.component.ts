@@ -1,16 +1,15 @@
-// src/app/landing/sections/hero/hero.component.ts
-
 import { Component, inject } from '@angular/core';
 import { ScrollService } from '../../../shared/scroll.service';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-footer',
   imports: [],
-  templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss',
 })
-export class HeroComponent {
+export class FooterComponent {
   private readonly scroll = inject(ScrollService);
+  readonly year = new Date().getFullYear();
 
   onAnchorClick(event: MouseEvent, targetId: string): void {
     event.preventDefault();
