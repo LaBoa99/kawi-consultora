@@ -1,50 +1,105 @@
 <section class="about" id="sobre">
   <div class="container-kawi">
-    <div class="about-grid">
 
-      <!-- Avatar — reemplazar con <img> cuando haya foto real -->
-      <div class="about-avatar" aria-hidden="true" scrollReveal [revealDelay]="0" [revealY]="16">G</div>
+    <p class="eyebrow about-section-eyebrow" scrollReveal [revealDelay]="0">Detrás de KAWI</p>
 
-      <div class="about-content" scrollReveal [revealDelay]="100">
-        <p class="eyebrow about-eyebrow">Detrás de KAWI</p>
-        <div class="about-name-row">
-          <h3 class="about-name">Ing. Gael Rodríguez</h3>
-          <span class="about-available" aria-label="Disponible para proyectos nuevos">
-            <span class="about-available-dot" aria-hidden="true"></span>
-            Disponible
-          </span>
+    <div class="about-team">
+
+      <!-- ── Gael · Fundador ─────────────────────────────────── -->
+      <div class="about-card about-card--primary" scrollReveal [revealDelay]="0">
+        <div class="about-avatar" aria-hidden="true">G</div>
+
+        <div class="about-content">
+          <div class="about-name-row">
+            <h3 class="about-name">Ing. Gael Rodríguez</h3>
+            <span class="about-badge about-badge--available" aria-label="Disponible para proyectos nuevos">
+              <span class="about-badge-dot" aria-hidden="true"></span>
+              Disponible
+            </span>
+          </div>
+
+          <p class="about-bio">
+            Desde 2022 desarrollo software a medida para negocios de la región: sistemas POS, bots de
+            WhatsApp y automatizaciones que realmente quedan instalados y funcionando. Soy ingeniero en
+            Electrónica y Computación por la Universidad de Guadalajara, con maestría en Ingeniería de
+            Software en curso.
+          </p>
+          <p class="about-bio">
+            Trabajo con cada cliente desde el diagnóstico hasta el mantenimiento. Sin agencias, sin plantillas.
+          </p>
+
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/claudio-gael-rodr%C3%ADguez-vega-b83507217/"
+               class="about-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/LaBoa99"
+               class="about-social" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Colaboradores: Maribel + Juan ──────────────────── -->
+      <div class="about-collab-row">
+
+        <div class="about-card" scrollReveal [revealDelay]="80">
+          <div class="about-avatar about-avatar--alt" aria-hidden="true">M</div>
+
+          <div class="about-content">
+            <div class="about-name-row">
+              <h3 class="about-name">Ing. Maribel Navarro</h3>
+              <span class="about-badge about-badge--demand" aria-label="Se integra a proyectos bajo demanda">
+                Bajo demanda
+              </span>
+            </div>
+            <p class="about-role">Desarrollo de software · Apps móviles</p>
+
+            <p class="about-bio">
+              Su primer proyecto fue una app para enseñar lengua de señas a niños sordos de Jalpa.
+              La construyó desde cero con herramientas que nunca había tocado antes de empezar.
+            </p>
+            <p class="about-bio">
+              Egresada de la UAZ Jalpa. La integro cuando el proyecto lo exige.
+            </p>
+          </div>
         </div>
 
-        <p class="about-bio">
-          Desde 2022 desarrollo software a medida para negocios de la región: sistemas POS, bots de WhatsApp
-          y automatizaciones que realmente quedan instalados y funcionando. Soy ingeniero en Electrónica y
-          Computación por la Universidad de Guadalajara, con maestría en Ingeniería de Software en curso.
-        </p>
-        <p class="about-bio">
-          Trabajo con cada cliente desde el diagnóstico hasta el mantenimiento. Sin agencias, sin plantillas.
-          Cuando el proyecto lo pide, me apoyo con ingenieros de confianza con quienes ya he trabajado antes.
-        </p>
+        <div class="about-card" scrollReveal [revealDelay]="160">
+          <div class="about-avatar about-avatar--alt" aria-hidden="true">J</div>
 
-        <!-- Links sociales -->
-        <div class="about-links">
-          <a href="https://www.linkedin.com/in/claudio-gael-rodr%C3%ADguez-vega-b83507217/" class="about-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/LaBoa99" class="about-social" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            GitHub
-          </a>
+          <div class="about-content">
+            <div class="about-name-row">
+              <h3 class="about-name">Ing. Juan Andrés Virgen</h3>
+              <span class="about-badge about-badge--demand" aria-label="Se integra a proyectos bajo demanda">
+                Bajo demanda
+              </span>
+            </div>
+            <p class="about-role">Desarrollo web · Soporte en campo</p>
+
+            <p class="about-bio">
+              Ingeniero por la Universidad de Guadalajara. Creció en Tala,
+              a unas cuadras de donde arrancó KAWI.
+            </p>
+            <p class="about-bio">
+              Cuando algo falla en el negocio de un cliente, puede estar ahí ese mismo día.
+              Programa en Laravel, Node.js y Python — y entiende cómo funciona el mostrador,
+              no solo el código.
+            </p>
+          </div>
         </div>
 
       </div>

@@ -8,6 +8,8 @@
 
 *.md
 
+.firebase
+.vscode
 .angular
 .vscode
 .claude

@@ -21,6 +21,17 @@ export class CountUpDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.reducedMotion) return;
 
+    const el = this.el.nativeElement;
+
+    // Reserva el ancho del valor final antes de animar para evitar layout shifts.
+    // El elemento ya muestra el valor final en el HTML, así que capturamos
+    // ese ancho y lo fijamos como min-width antes de que el contador empiece en 0.
+    const finalWidth = el.offsetWidth;
+    if (finalWidth > 0) {
+      el.style.display = 'inline-block';
+      el.style.minWidth = `${finalWidth}px`;
+    }
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +43,7 @@ export class CountUpDirective implements OnInit, OnDestroy {
       { threshold: 0.5 },
     );
 
-    this.observer.observe(this.el.nativeElement);
+    this.observer.observe(el);
   }
 
   ngOnDestroy(): void {

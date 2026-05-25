@@ -170,6 +170,7 @@
   letter-spacing: -0.03em;
   line-height: 1;
   color: $text-primary;
+  white-space: nowrap;
 
   &--highlight {
     font-size: clamp(2rem, 6vw, 2.625rem);
@@ -229,6 +230,7 @@
   letter-spacing: -0.03em;
   line-height: 1;
   color: $brand-primary;
+  white-space: nowrap;
 }
 
 .case-study-outcome-label {

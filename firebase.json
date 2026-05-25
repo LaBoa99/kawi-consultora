@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/kawi-consultora/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "!/.well-known/**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -2,23 +2,29 @@
 
 @use 'styles/variables' as *;
 
+// sticky va en el :host porque el browser ve <app-nav> en el DOM,
+// no el <nav> interno. Si el sticky está solo en .nav queda atrapado
+// dentro del host y nunca se activa.
 :host {
   display: block;
-}
-
-.nav {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid $border-light;
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  transition: box-shadow $transition-slow;
+}
 
+.nav {
+  // Frosted glass — la misma receta que usa Apple en macOS/iOS:
+  // saturate amplifica los colores detrás del vidrio, blur los difumina.
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background $transition-slow, box-shadow $transition-slow;
+
+  // Al hacer scroll: se opaca un poco más para anclar el contenido visualmente
   &--scrolled {
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -183,11 +189,12 @@
   max-height: 0;
   transition: max-height $transition-slow;
   border-top: 1px solid transparent;
-  background: $surface-primary;
+  // Más opaco que el nav para que los links sean legibles
+  background: rgba(255, 255, 255, 0.92);
 
   &--open {
     max-height: 320px;
-    border-top-color: $border-light;
+    border-top-color: rgba(0, 0, 0, 0.06);
   }
 
   @media (min-width: $bp-md) {
