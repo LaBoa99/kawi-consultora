@@ -148,3 +148,25 @@
   line-height: 1.4;
   color: $text-secondary;
 }
+
+// ---------- DEMO EN VIDEO ---------------------------------------------------
+
+.case-demo {
+  margin: 1.25rem 0 0;
+
+  video {
+    display: block;
+    // Ancho completo, salvo en pantallas bajas: ahí el ancho sale del alto disponible
+    width: min(100%, calc((100svh - 65px - 11rem) * 16 / 9));
+    aspect-ratio: 16 / 9;
+    background: $surface-primary;
+    border: 1px solid $brand-primary;
+  }
+}
+
+.case-demo-caption {
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
