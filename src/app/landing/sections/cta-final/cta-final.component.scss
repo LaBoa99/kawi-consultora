@@ -1,52 +1,48 @@
 // src/app/landing/sections/cta-final/cta-final.component.scss
 
 @use 'styles/variables' as *;
+@use 'styles/sign' as *;
 
 :host {
   display: block;
 }
 
+// El mismo rótulo, en negativo: blanco sobre azul
 .cta-final {
-  background: linear-gradient(135deg, $brand-primary 0%, #0006e0 100%);
-  padding-block: $section-padding-y-md;
-  position: relative;
-  overflow: hidden;
-
-  @media (min-width: $bp-md) {
-    padding-block: $section-padding-y;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -40%;
-    right: -15%;
-    width: 55%;
-    height: 180%;
-    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
-    pointer-events: none;
-  }
+  background: $brand-primary;
 }
 
 .cta-final-inner {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.25rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.cta-final-band {
+  @include sign-band($text-inverse, rgba(255, 255, 255, 0.6));
+  @include sign-frame($text-inverse);
+  align-self: stretch;
 }
 
 .cta-final-headline {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 3vw, 1.625rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: $text-inverse;
-  max-width: 560px;
-  text-wrap: balance;
+  @include sign-heading($text-inverse);
+  max-width: 20ch;
+}
+
+.cta-final-sub {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 52ch;
+  text-wrap: pretty;
   margin: 0;
+
+  strong {
+    color: $text-inverse;
+    font-weight: 600;
+  }
 }
 
 .cta-final-actions {
@@ -59,7 +55,6 @@
   @media (min-width: $bp-md) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     max-width: none;
   }
 }
@@ -75,38 +70,22 @@
 
 .cta-final-btn--secondary {
   background: transparent;
-  color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.7);
     color: $text-inverse;
   }
 }
 
-.cta-final-sub {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 440px;
-  text-wrap: pretty;
-  margin: 0;
-}
-
-.cta-final-sub strong {
-  color: $text-inverse;
-  font-weight: 600;
-}
-
 .cta-final-team {
-  margin-top: 0.5rem;
   font-size: 0.9375rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-decoration-color: rgba(255, 255, 255, 0.4);
   text-underline-offset: 4px;
   transition: color $transition-fast, text-decoration-color $transition-fast;
 

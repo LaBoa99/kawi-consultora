@@ -1,144 +1,135 @@
-<section class="case-study" id="casos">
+<section class="cases">
+  <div class="container-kawi">
 
-  <!-- ================================================================
-       CASO 01 · REFACCIONARIA TORRES
-       ================================================================ -->
-
-  <div class="case-study-header">
-    <div class="container-kawi case-study-header-inner">
-      <span class="case-study-label">CASO 01 · REFACCIONARIA TORRES</span>
-      <span class="case-study-meta" aria-hidden="true">TALA, JAL · 2023</span>
-    </div>
-  </div>
-
-  <div class="container-kawi case-study-body">
-
-    <h2 class="case-study-headline" scrollReveal [revealDelay]="0">
-      Llegaron con la ticketera encajonada. Hoy su sistema registra
-      <span class="case-study-headline-emphasis">más de 300 veces lo que costó</span> en ventas.
-    </h2>
-
-    <div class="case-study-grid">
-
-      <div class="case-study-col" scrollReveal [revealDelay]="0">
-        <p class="eyebrow case-study-eyebrow">El problema</p>
-        <p class="case-study-text">
-          Un programador les vendió una ticketera antes de KAWI. Prometió instalarla,
-          cobró y nunca regresó. Las cajas estaban cerradas, el sistema sin configurar,
-          y el negocio seguía operando todo a mano.
-        </p>
-        <p class="case-study-text">
-          Sin control de inventario, sin tickets, sin datos. El dueño no sabía qué
-          se vendía ni cuánto perdía.
+    <article class="case slide" id="casos" data-slide="Torres">
+      <div class="cases-frame">
+        <p class="cases-band">
+          <span>Lo que ya hicimos</span>
+          <span>Dos sistemas en producción en Tala</span>
         </p>
       </div>
+      <p class="case-band">
+        <span>Refaccionaria Torres</span>
+        <span>Tala, Jal. · Desde 2023</span>
+      </p>
 
-      <div class="case-study-col" scrollReveal [revealDelay]="140">
-        <p class="eyebrow case-study-eyebrow">Lo que construimos</p>
-        <ul class="case-study-list" role="list">
-          <li>Punto de venta con búsqueda por código y ticket impreso en caja</li>
-          <li>Inventario de más de 5,500 piezas, con etiquetas QR para encontrarlas</li>
-          <li>Proveedores por pieza, historial de precios y reportes de ventas</li>
-          <li>Respaldo automático cada hora, guardado fuera de la tienda</li>
-          <li>Capacitación al equipo + mantenimiento continuo</li>
-        </ul>
-      </div>
+      <h2 class="case-headline" scrollReveal [revealDelay]="0">
+        Llegaron con la ticketera encajonada.
+        <span class="case-headline-em">Hoy su sistema registra más de 300 veces lo que costó en ventas.</span>
+      </h2>
 
-    </div>
-
-    <div class="case-study-result" scrollReveal [revealDelay]="0">
-      <p class="eyebrow case-study-eyebrow">El resultado</p>
-      <div class="case-study-numbers">
-        <div class="case-study-number">
-          <span class="case-study-amount"
-                countUp [countTo]="13000" countPrefix="$" [countSeparator]="true"
-                [countDuration]="1200">$13,000</span>
-          <span class="case-study-currency">MXN invertidos</span>
+      <div class="case-figures" scrollReveal [revealDelay]="0">
+        <div>
+          <span class="case-figure" countUp [countTo]="13000" countPrefix="$"
+                [countSeparator]="true" [countDuration]="1200">$13,000</span>
+          <span class="case-figure-label">MXN de inversión</span>
         </div>
-        <span class="case-study-arrow" aria-hidden="true">→</span>
-        <div class="case-study-number">
-          <span class="case-study-amount case-study-amount--highlight"
-                countUp [countTo]="300" countSuffix="×+"
+        <div>
+          <span class="case-figure" countUp [countTo]="300" countSuffix="×+"
                 [countDuration]="1600">300×+</span>
-          <span class="case-study-currency">la inversión, en ventas registradas</span>
+          <span class="case-figure-label">la inversión, en ventas registradas</span>
+        </div>
+        <div>
+          <span class="case-figure" countUp [countTo]="5500"
+                [countSeparator]="true" [countDuration]="1400">5,500</span>
+          <span class="case-figure-label">piezas en el inventario</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="case slide case--detail" data-slide="Torres · detalle">
+      <p class="case-band">
+        <span>Refaccionaria Torres · Detalle</span>
+        <span>Tala, Jal. · Desde 2023</span>
+      </p>
+
+      <div class="case-grid">
+        <div scrollReveal [revealDelay]="0">
+          <h3 class="case-label">El problema</h3>
+          <p class="case-text">
+            Un programador les vendió una ticketera antes de KAWI. Prometió instalarla,
+            cobró y nunca regresó. Las cajas estaban cerradas, el sistema sin configurar,
+            y el negocio seguía operando todo a mano.
+          </p>
+          <p class="case-text">
+            Sin control de inventario, sin tickets, sin datos. El dueño no sabía qué
+            se vendía ni cuánto perdía.
+          </p>
+        </div>
+
+        <div scrollReveal [revealDelay]="120">
+          <h3 class="case-label">Lo que construimos</h3>
+          <ul class="case-list" role="list">
+            <li>Punto de venta con búsqueda por código y ticket impreso en caja</li>
+            <li>Inventario de más de 5,500 piezas, con etiquetas QR para encontrarlas</li>
+            <li>Proveedores por pieza, historial de precios y reportes de ventas</li>
+            <li>Respaldo automático cada hora, guardado fuera de la tienda</li>
+            <li>Capacitación al equipo y mantenimiento continuo</li>
+          </ul>
         </div>
       </div>
     </div>
 
+    <article class="case slide" data-slide="Mutual">
+      <p class="case-band">
+        <span>Mutual Guadalupana A.C.</span>
+        <span>Tala, Jal. · Desde 2024</span>
+      </p>
 
-  </div>
+      <h2 class="case-headline" scrollReveal [revealDelay]="0">
+        Llevaban el padrón en máquina de escribir.
+        <span class="case-headline-em">Hoy cada socio ve su adeudo desde su celular.</span>
+      </h2>
 
-  <!-- ================================================================
-       CASO 02 · MUTUAL GUADALUPANA A.C.
-       ================================================================ -->
-
-  <div class="case-study-divider" aria-hidden="true"></div>
-
-  <div class="case-study-header">
-    <div class="container-kawi case-study-header-inner">
-      <span class="case-study-label">CASO 02 · MUTUAL GUADALUPANA A.C.</span>
-      <span class="case-study-meta" aria-hidden="true">TALA, JAL</span>
-    </div>
-  </div>
-
-  <div class="container-kawi case-study-body">
-
-    <h2 class="case-study-headline" scrollReveal [revealDelay]="0">
-      Llevaban el padrón en máquina de escribir. Hoy cada socio ve su adeudo
-      <span class="case-study-headline-emphasis">desde su celular</span>.
-    </h2>
-
-    <div class="case-study-grid">
-
-      <div class="case-study-col" scrollReveal [revealDelay]="0">
-        <p class="eyebrow case-study-eyebrow">El problema</p>
-        <p class="case-study-text">
-          Toda la operación iba a mano: padrones de socios impresos y llenados en
-          máquina de escribir, cobranza sin trazabilidad, comunicación con afiliados
-          inexistente.
-        </p>
-        <p class="case-study-text">
-          Sin historial digital, sin manera de saber quién debía, quién ya pagó,
-          ni cómo avisarles nada.
-        </p>
-      </div>
-
-      <div class="case-study-col" scrollReveal [revealDelay]="140">
-        <p class="eyebrow case-study-eyebrow">Lo que construimos</p>
-        <ul class="case-study-list" role="list">
-          <li>Digitalización de cientos de registros históricos con apoyo de IA</li>
-          <li>Sistema de socios, cobranza, multas y servicios funerarios</li>
-          <li>Portal para socios: adeudo y credencial digital desde el celular</li>
-          <li>Avisos automáticos por WhatsApp: alta, vigencia y confirmación de pago</li>
-          <li>Capacitación al equipo administrativo</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="case-study-result" scrollReveal [revealDelay]="0">
-      <p class="eyebrow case-study-eyebrow">El resultado</p>
-      <div class="case-study-outcomes">
-        <div class="case-study-outcome">
-          <span class="case-study-outcome-value"
-                countUp [countTo]="1800"
+      <div class="case-figures" scrollReveal [revealDelay]="0">
+        <div>
+          <span class="case-figure" countUp [countTo]="1800"
                 [countSeparator]="true" [countDuration]="1400">1,800</span>
-          <span class="case-study-outcome-label">socios administrados en el sistema</span>
+          <span class="case-figure-label">socios en el sistema</span>
         </div>
-        <div class="case-study-outcome">
-          <span class="case-study-outcome-value"
-                countUp [countTo]="100" countSuffix="%"
-                [countDuration]="900">100%</span>
-          <span class="case-study-outcome-label">de la operación en digital</span>
+        <div>
+          <span class="case-figure" countUp [countTo]="4" [countDuration]="600">4</span>
+          <span class="case-figure-label">avisos automáticos por WhatsApp: alta, vigencia, recordatorio y pago</span>
         </div>
-        <div class="case-study-outcome">
-          <span class="case-study-outcome-value">24/7</span>
-          <span class="case-study-outcome-label">portal de socios en línea</span>
+        <div>
+          <span class="case-figure">Diario</span>
+          <span class="case-figure-label">respaldo cifrado del padrón</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="case slide case--detail" data-slide="Mutual · detalle">
+      <p class="case-band">
+        <span>Mutual Guadalupana A.C. · Detalle</span>
+        <span>Tala, Jal. · Desde 2024</span>
+      </p>
+
+      <div class="case-grid">
+        <div scrollReveal [revealDelay]="0">
+          <h3 class="case-label">El problema</h3>
+          <p class="case-text">
+            Toda la operación iba a mano: padrones de socios impresos y llenados en
+            máquina de escribir, cobranza sin trazabilidad, comunicación con afiliados
+            inexistente.
+          </p>
+          <p class="case-text">
+            Sin historial digital, sin manera de saber quién debía, quién ya pagó,
+            ni cómo avisarles nada.
+          </p>
+        </div>
+
+        <div scrollReveal [revealDelay]="120">
+          <h3 class="case-label">Lo que construimos</h3>
+          <ul class="case-list" role="list">
+            <li>Digitalización del padrón que estaba en máquina de escribir</li>
+            <li>Sistema de socios, cobranza, multas y servicios funerarios</li>
+            <li>Portal para socios: adeudo y credencial digital desde el celular</li>
+            <li>Avisos automáticos por WhatsApp: alta, vigencia y confirmación de pago</li>
+            <li>Capacitación al equipo administrativo</li>
+          </ul>
         </div>
       </div>
     </div>
 
-
   </div>
-
 </section>

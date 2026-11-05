@@ -1,0 +1,110 @@
+// Lenguaje del rótulo: lo usan el hero y todas las secciones de la landing.
+// Hubot Sans a todo lo ancho (wdth 125) y en mayúsculas, filetes azules y bandas.
+
+@use 'variables' as *;
+
+@mixin sign-type {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  text-transform: uppercase;
+}
+
+// Marco de sección: filete grueso arriba, como el borde del rótulo
+@mixin sign-frame($color: $brand-primary) {
+  border-top: 3px solid $color;
+}
+
+// Banda de texto chico entre filetes (nombre de sección, lugar, fecha)
+@mixin sign-band($color: $text-primary, $rule: $brand-primary) {
+  @include sign-type;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid $rule;
+  font-size: clamp(0.6875rem, 1.1vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: $color;
+}
+
+// Encabezado grande de sección
+@mixin sign-heading($color: $brand-primary) {
+  @include sign-type;
+  margin: 0;
+  font-size: clamp(1.625rem, 4.6vw, 3.75rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  color: $color;
+  text-wrap: balance;
+}
+
+// Encabezado de columna: texto chico sobre un filete delgado
+@mixin sign-label($color: $text-primary, $rule: $brand-primary) {
+  @include sign-type;
+  margin: 0 0 0.875rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid $rule;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: $color;
+}
+
+// Cifra grande, como el precio de un rótulo
+@mixin sign-figure($color: $brand-primary) {
+  @include sign-type;
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: $color;
+}
+
+// Viñeta cuadrada del rótulo
+@mixin sign-marker($color: $brand-primary) {
+  content: '■';
+  margin-right: 0.625em;
+  font-size: 0.6em;
+  vertical-align: 0.2em;
+  color: $color;
+}
+
+// Fila de columnas separadas por filetes verticales (en celular se apilan)
+@mixin sign-columns($count, $rule: $brand-primary) {
+  display: grid;
+
+  > * {
+    padding-block: 1rem;
+  }
+
+  > * + * {
+    border-top: 1px solid $rule;
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat($count, 1fr);
+
+    > * {
+      padding-inline: 1.5rem;
+    }
+
+    > *:first-child {
+      padding-left: 0;
+    }
+
+    > *:last-child {
+      padding-right: 0;
+    }
+
+    > * + * {
+      border-top: 0;
+      border-left: 1px solid $rule;
+    }
+  }
+}

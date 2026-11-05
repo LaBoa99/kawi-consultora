@@ -45,7 +45,7 @@ export const TEAM: Collaborator[] = [
       },
       {
         context: 'Cliente KAWI · Tala · 2023 a la fecha',
-        title: 'Punto de venta · Refaccionaria Torres',
+        title: 'Sistema a medida · Refaccionaria Torres',
         summary:
           'Venta con búsqueda por código y ticket impreso, inventario de más de 5,500 piezas con etiquetas QR, proveedores por pieza, historial de precios y reportes. Corre en una Raspberry Pi dentro de la tienda, con respaldo cada hora fuera de ella.',
         stack: ['Angular', 'NestJS', 'MariaDB', 'Raspberry Pi'],

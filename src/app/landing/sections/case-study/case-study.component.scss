@@ -1,107 +1,84 @@
 // src/app/landing/sections/case-study/case-study.component.scss
 
 @use 'styles/variables' as *;
+@use 'styles/sign' as *;
 
 :host {
   display: block;
 }
 
-.case-study {
-  border-top: 1px solid $border-light;
+// Cada caso son dos diapositivas (.slide): el rótulo con cifras y el detalle
+
+.cases-frame {
+  @include sign-frame;
 }
 
-
-// ---------- HEADER STRIP OSCURO -------------------------------------------
-
-.case-study-header {
-  background: $surface-dark;
-  padding-block: 0.75rem;
+.cases-band {
+  @include sign-band;
 }
 
-.case-study-header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+// ---------- CASO ------------------------------------------------------------
+
+.case--detail .case-grid {
+  margin-top: 1.5rem;
 }
 
-.case-study-label {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;     // 11px
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: $text-inverse;
-  font-weight: 500;
+.case-band {
+  @include sign-band($brand-primary);
+  border-top: 1px solid $brand-primary;
 }
 
-.case-study-meta {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
+// Debajo de la banda de sección no hace falta otro filete
+.cases-frame + .case-band {
+  border-top: 0;
 }
 
-
-// ---------- CUERPO PRINCIPAL ----------------------------------------------
-
-.case-study-body {
-  padding-block: $section-padding-y-md;
-
+// La diapositiva de detalle tiene toda la pantalla: el texto puede crecer
+.case--detail {
   @media (min-width: $bp-md) {
-    padding-block: $section-padding-y;
+    .case-text,
+    .case-list li {
+      font-size: 1.0625rem;
+    }
+
+    .case-label {
+      font-size: 0.9375rem;
+    }
   }
 }
 
-
-// ---------- HEADLINE ------------------------------------------------------
-
-.case-study-headline {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  color: $text-primary;
-  max-width: 700px;
-  margin-bottom: 2rem;
-  text-wrap: balance;
+.case-headline {
+  @include sign-heading($text-primary);
+  font-size: clamp(1.375rem, 3.4vw, 2.75rem);
+  line-height: 1.02;
+  padding-block: 1.25rem 1.5rem;
+  max-width: 32ch;
 
   @media (min-width: $bp-md) {
-    margin-bottom: 3rem;
+    padding-block: 2rem 2.5rem;
   }
 }
 
-.case-study-headline-emphasis {
+.case-headline-em {
   color: $brand-primary;
 }
 
+// ---------- PROBLEMA / LO QUE CONSTRUIMOS ---------------------------------
 
-// ---------- GRID PROBLEMA / SOLUCIÓN --------------------------------------
-
-.case-study-grid {
-  display: grid;
-  gap: 2rem;
-  margin-bottom: 3rem;
-
-  @media (min-width: $bp-md) {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
+.case-grid {
+  @include sign-columns(2);
 }
 
-.case-study-eyebrow {
-  margin-bottom: 1rem;
-  color: $text-tertiary;  // .eyebrow global ya aplica color pero reforzamos aquí
+.case-label {
+  @include sign-label;
 }
 
-.case-study-text {
+.case-text {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;    // 15px
+  font-size: 0.875rem;
   line-height: 1.65;
   color: $text-secondary;
+  max-width: 60ch;
   text-wrap: pretty;
 
   & + & {
@@ -109,135 +86,65 @@
   }
 }
 
-.case-study-list {
+.case-list {
   list-style: none;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  gap: 0.625rem;
 
   li {
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.5;
     color: $text-secondary;
-    padding-left: 1.375rem;
-    position: relative;
+    padding-left: 1.25rem;
+    text-indent: -1.25rem;
 
     &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 5px;
-      height: 5px;
-      background: $brand-primary;
-      border-radius: 50%;
-      opacity: 0.85;
+      @include sign-marker;
+      display: inline-block;
+      width: 1.25rem;
+      margin-right: 0;
+      text-indent: 0;
     }
   }
 }
 
+// ---------- CIFRAS ----------------------------------------------------------
 
-// ---------- STRIP DE NÚMEROS ----------------------------------------------
+.case-figures {
+  @include sign-columns(3);
+  margin-top: 1.5rem;
+  border-block: 1px solid $brand-primary;
 
-.case-study-result {
-  background: rgba(3, 11, 252, 0.025);
-  border: 1px solid rgba(3, 11, 252, 0.08);
-  border-radius: $radius-lg;
-  padding: 2rem;
-  margin-bottom: 0;
-}
+  > div {
+    display: grid;
+    align-content: start;
+    gap: 0.375rem;
+    padding-block: 1.25rem;
 
-.case-study-numbers {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1.25rem;
-}
-
-.case-study-number {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.case-study-amount {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 4vw, 1.75rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: $text-primary;
-  white-space: nowrap;
-
-  &--highlight {
-    font-size: clamp(2rem, 6vw, 2.625rem);
-    color: $brand-primary;
+    // En celular: cifra y etiqueta en una fila, para que el rótulo quepa en pantalla
+    @media (max-width: #{$bp-md - 1px}) {
+      grid-template-columns: 9.5rem 1fr;
+      align-items: center;
+      gap: 0.75rem;
+      padding-block: 0.75rem;
+    }
   }
 }
 
-.case-study-currency {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: $text-tertiary;
-  letter-spacing: 0.02em;
-}
+.case-figure {
+  @include sign-figure;
 
-.case-study-arrow {
-  font-size: 1.5rem;
-  color: $text-tertiary;
-  align-self: center;
-  flex-shrink: 0;
-}
-
-
-// ---------- DIVISOR ENTRE CASOS -------------------------------------------
-
-.case-study-divider {
-  height: 1px;
-  background: $border-light;
-  margin-inline: auto;
-  max-width: calc(100% - 2 * 1.25rem);
-
-  @media (min-width: $bp-md) {
-    max-width: calc(100% - 2 * 2rem);
+  @media (max-width: #{$bp-md - 1px}) {
+    font-size: 1.875rem;
   }
 }
 
-
-// ---------- OUTCOMES (resultado cualitativo CASO 02) ----------------------
-
-.case-study-outcomes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 1.25rem;
-}
-
-.case-study-outcome {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  min-width: 7rem;
-}
-
-.case-study-outcome-value {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 5vw, 2.25rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: $brand-primary;
-  white-space: nowrap;
-}
-
-.case-study-outcome-label {
+.case-figure-label {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
-  color: $text-tertiary;
   line-height: 1.4;
+  color: $text-secondary;
 }
-
-

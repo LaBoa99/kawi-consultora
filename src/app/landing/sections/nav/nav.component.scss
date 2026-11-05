@@ -1,6 +1,7 @@
 // src/app/landing/sections/nav/nav.component.scss
 
 @use 'styles/variables' as *;
+@use 'styles/sign' as *;
 
 // sticky va en el :host porque el browser ve <app-nav> en el DOM,
 // no el <nav> interno. Si el sticky está solo en .nav queda atrapado
@@ -12,20 +13,10 @@
   z-index: 50;
 }
 
+// Pintura plana, como el rótulo: fondo blanco y filete azul abajo
 .nav {
-  // Frosted glass — la misma receta que usa Apple en macOS/iOS:
-  // saturate amplifica los colores detrás del vidrio, blur los difumina.
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  transition: background $transition-slow, box-shadow $transition-slow;
-
-  // Al hacer scroll: se opaca un poco más para anclar el contenido visualmente
-  &--scrolled {
-    background: rgba(255, 255, 255, 0.84);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.04);
-  }
+  background: $surface-primary;
+  border-bottom: 1px solid $brand-primary;
 }
 
 .nav-inner {
@@ -43,22 +34,20 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
   flex-shrink: 0;
 
   &-logo {
     width: 22px;
     height: 22px;
     background: $brand-primary;
-    border-radius: $radius-md;
     flex-shrink: 0;
   }
 
   &-text {
+    @include sign-type;
     font-size: 1rem;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     color: $text-primary;
   }
 }
@@ -79,7 +68,10 @@
 }
 
 .nav-link {
-  font-size: 0.8125rem;
+  @include sign-type;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: $text-secondary;
   transition: color $transition-fast;
   position: relative;
@@ -222,10 +214,12 @@
 }
 
 .nav-mobile-link {
+  @include sign-type;
   display: block;
   padding: 0.75rem 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: $text-secondary;
   transition: color $transition-fast, background $transition-fast;
 

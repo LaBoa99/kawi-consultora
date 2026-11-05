@@ -29,12 +29,17 @@ export class ScrollService {
       return;
     }
 
+    // El snap pelearía con cada paso de la animación; se apaga mientras dura
+    const root = document.documentElement;
+    root.style.scrollSnapType = 'none';
+
     const scroll = { y: window.scrollY };
     animate(scroll, {
       y: targetY,
       duration: 800,
       easing: 'easeInOutQuart',
       onUpdate: () => window.scrollTo(0, scroll.y),
+      onComplete: () => root.style.removeProperty('scroll-snap-type'),
     });
   }
 }

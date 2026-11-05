@@ -20,12 +20,13 @@ import { findCollaborator } from './team';
       </a>
 
       @if (person(); as p) {
+        <p class="sign-band-row">
+          <span>Equipo KAWI</span>
+          <span>{{ p.role }}</span>
+        </p>
         <header class="perfil-header">
           <span class="monogram monogram--lg" aria-hidden="true">{{ p.initials }}</span>
-          <div>
-            <h1 class="perfil-name">{{ p.name }}</h1>
-            <p class="perfil-role">{{ p.role }}</p>
-          </div>
+          <h1 class="perfil-name">{{ p.name }}</h1>
         </header>
 
         <div class="perfil-bio">

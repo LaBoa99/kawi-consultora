@@ -1,39 +1,37 @@
-<section class="process" id="proceso">
+<section class="process slide" id="proceso" data-slide="Cómo trabajo">
   <div class="container-kawi">
 
-    <p class="eyebrow process-eyebrow" scrollReveal [revealDelay]="0">Cómo trabajo</p>
-    <h2 class="process-headline" scrollReveal [revealDelay]="80">No te entrego un sistema y desaparezco.</h2>
+    <div class="process-frame">
+      <p class="process-band">
+        <span>Cómo trabajo</span>
+        <span>De la plática al mantenimiento</span>
+      </p>
+    </div>
 
-    <div class="process-steps">
+    <h2 class="process-headline" scrollReveal [revealDelay]="0">No te entrego un sistema y desaparezco.</h2>
 
-      <div class="process-step" scrollReveal [revealDelay]="0">
+    <ol class="process-steps" role="list">
+      <li class="process-step" scrollReveal [revealDelay]="0">
         <span class="process-step-num" aria-hidden="true">01</span>
-        <p class="eyebrow process-step-label">Diagnóstico</p>
         <h3 class="process-step-title">Primero platicamos</h3>
         <p class="process-step-desc">Entiendo cómo opera tu negocio, qué falla y qué necesitas. De ahí sale lo que hay que construir.</p>
-      </div>
-
-      <div class="process-step" scrollReveal [revealDelay]="120">
+      </li>
+      <li class="process-step" scrollReveal [revealDelay]="100">
         <span class="process-step-num" aria-hidden="true">02</span>
-        <p class="eyebrow process-step-label">Instalación</p>
         <h3 class="process-step-title">Lo dejo funcionando</h3>
         <p class="process-step-desc">Instalo, conecto lo que haya que conectar y dejo todo corriendo.</p>
-      </div>
-
-      <div class="process-step" scrollReveal [revealDelay]="240">
+      </li>
+      <li class="process-step" scrollReveal [revealDelay]="200">
         <span class="process-step-num" aria-hidden="true">03</span>
-        <p class="eyebrow process-step-label">Capacitación</p>
         <h3 class="process-step-title">Tu equipo aprende</h3>
         <p class="process-step-desc">Capacito a quien lo va a usar día a día, no solo al jefe.</p>
-      </div>
-
-      <div class="process-step process-step--closing" scrollReveal [revealDelay]="360">
+      </li>
+      <li class="process-step process-step--last" scrollReveal [revealDelay]="300">
         <span class="process-step-num" aria-hidden="true">04</span>
-        <p class="eyebrow process-step-label">Mantenimiento</p>
-        <h3 class="process-step-title">Seguimos en contacto.</h3>
+        <h3 class="process-step-title">Seguimos en contacto</h3>
         <p class="process-step-desc">Cuando algo falla, respondo. Cuando algo cambia, lo ajustamos.</p>
-      </div>
+      </li>
+    </ol>
 
-    </div>
   </div>
 </section>

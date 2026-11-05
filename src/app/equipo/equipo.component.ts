@@ -12,6 +12,10 @@ import { TEAM } from './team';
     <app-nav />
     <main class="equipo container-kawi">
       <header class="equipo-header">
+        <p class="sign-band-row">
+          <span>KAWI</span>
+          <span>Tala, Jal.</span>
+        </p>
         <h1 class="equipo-title">El equipo</h1>
         <p class="equipo-intro">
           KAWI lo llevo yo. Cuando un proyecto lo pide, sumo a gente que conozco y en quien confío.

@@ -10,7 +10,8 @@
 // ----------------------------------------------------------------------------
 
 @use '@fontsource-variable/mona-sans';
-@use '@fontsource-variable/hubot-sans';
+// standard = pesos + anchos (wdth 75–125), lo necesita el rótulo del hero
+@use '@fontsource-variable/hubot-sans/standard';
 
 @use 'styles/variables' as *;
 
@@ -27,6 +28,27 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+}
+
+// Landing en diapositivas: cada rótulo ocupa una pantalla y cada gesto avanza una.
+// La clase la pone LandingComponent, así /equipo hace scroll normal.
+html.snap-slides {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 65px; // alto del nav fijo
+}
+
+.slide {
+  min-height: calc(100svh - 65px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 1rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  @media (min-width: $bp-md) and (min-height: 760px) {
+    padding-block: 2rem;
+  }
 }
 
 img, svg, video {

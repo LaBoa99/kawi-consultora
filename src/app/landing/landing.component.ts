@@ -1,6 +1,6 @@
 // src/app/landing/landing.component.ts
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavComponent } from './sections/nav/nav.component';
 import { HeroComponent } from './sections/hero/hero.component';
 import { CaseStudyComponent } from './sections/case-study/case-study.component';
@@ -8,6 +8,7 @@ import { ServicesComponent } from './sections/services/services.component';
 import { ProcessComponent } from './sections/process/process.component';
 import { CtaFinalComponent } from './sections/cta-final/cta-final.component';
 import { FooterComponent } from './sections/footer/footer.component';
+import { SlideNavComponent } from './slide-nav.component';
 
 @Component({
   selector: 'app-landing',
@@ -19,6 +20,7 @@ import { FooterComponent } from './sections/footer/footer.component';
     ProcessComponent,
     CtaFinalComponent,
     FooterComponent,
+    SlideNavComponent,
   ],
   template: `
     <app-nav />
@@ -30,6 +32,7 @@ import { FooterComponent } from './sections/footer/footer.component';
       <app-cta-final />
     </main>
     <app-footer />
+    <app-slide-nav />
   `,
   styles: `
     :host {
@@ -37,4 +40,13 @@ import { FooterComponent } from './sections/footer/footer.component';
     }
   `,
 })
-export class LandingComponent {}
+export class LandingComponent implements OnInit, OnDestroy {
+  // El snap por diapositivas solo aplica en la landing (ver .snap-slides en styles.scss)
+  ngOnInit(): void {
+    document.documentElement.classList.add('snap-slides');
+  }
+
+  ngOnDestroy(): void {
+    document.documentElement.classList.remove('snap-slides');
+  }
+}

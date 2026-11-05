@@ -1,76 +1,65 @@
-<section class="hero" id="hero">
+<section class="hero slide" id="hero" data-slide="Inicio">
   <div class="container-kawi">
-    <div class="hero-layout">
 
-      <!-- Texto -->
-      <div class="hero-content">
+    <!-- Rótulo: se lee como la fachada pintada de un negocio de la región -->
+    <div class="hero-sign">
 
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot" aria-hidden="true"></span>
-          Desarrollo de software a medida · Tala, Jal.
-        </div>
+      <p class="hero-band hero-band--top">
+        <span>KAWI</span>
+        <span>Tala, Jal.</span>
+        <span>Desde 2022</span>
+      </p>
 
-        <h1 class="hero-headline">
-          Software a la medida para PyMEs que necesitan que las cosas
-          <span class="display-italic hero-emphasis">funcionen</span>.
-        </h1>
+      <h1 class="hero-title">
+        <span class="hero-title-line hero-title-line--1">Software</span>
+        <span class="hero-title-line hero-title-line--2">a la medida</span>
+        <span class="hero-title-line hero-title-line--3">para negocios que necesitan que las cosas funcionen</span>
+      </h1>
 
-        <p class="hero-subhead">
-          Sistemas hechos para cómo trabaja tu negocio, no plantillas genéricas: digitalizo lo
-          que llevas en papel, hago portales para tus clientes y herramientas internas a tu medida.
-          Yo lo instalo, capacito a tu equipo y me quedo de soporte.
-        </p>
+      <ul class="hero-band hero-band--work" role="list" aria-label="Qué hago">
+        <li>Del papel a un sistema</li>
+        <li>Portales para clientes</li>
+        <li>Herramientas internas</li>
+      </ul>
 
-        <div class="hero-actions">
-          <a href="#contacto" class="btn-kawi btn-kawi--primary" (click)="onAnchorClick($event, 'contacto')">
-            Hablar conmigo
-            <span aria-hidden="true">→</span>
-          </a>
-          <a href="#casos" class="btn-kawi btn-kawi--ghost" (click)="onAnchorClick($event, 'casos')">
-            Ver casos
-          </a>
-        </div>
-
-        <div class="hero-trust" aria-label="Qué incluye">
-          <span class="hero-trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Pago único por software
-          </span>
-          <span class="hero-trust-divider" aria-hidden="true">·</span>
-          <span class="hero-trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Instalación incluida
-          </span>
-          <span class="hero-trust-divider" aria-hidden="true">·</span>
-          <span class="hero-trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                 aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Soporte continuo
-          </span>
-        </div>
-
-      </div>
-
-      <!-- Lo que ya hicimos: la prueba a la vista desde el primer segundo -->
+      <!-- Lo que ya hicimos, en el rótulo como si fueran precios -->
       <div class="hero-proof">
-        <p class="hero-proof-label">Funcionando hoy en Tala</p>
         <a href="#casos" class="hero-proof-item" (click)="onAnchorClick($event, 'casos')">
           <span class="hero-proof-client">Refaccionaria Torres</span>
-          <span class="hero-proof-figure">300×+ <small>la inversión, en ventas registradas</small></span>
-          <span class="hero-proof-what">Inventario de 5,500 piezas, ventas y reportes hechos para su mostrador. Desde 2023.</span>
+          <span class="hero-proof-figure">300×</span>
+          <span class="hero-proof-what">la inversión, en ventas registradas</span>
         </a>
         <a href="#casos" class="hero-proof-item" (click)="onAnchorClick($event, 'casos')">
-          <span class="hero-proof-client">Mutual Guadalupana A.C.</span>
-          <span class="hero-proof-figure">1,800 <small>socios digitalizados</small></span>
-          <span class="hero-proof-what">Del padrón en máquina de escribir a un portal donde cada socio ve su adeudo en el celular.</span>
+          <span class="hero-proof-client">Mutual Guadalupana</span>
+          <span class="hero-proof-figure">1,800</span>
+          <span class="hero-proof-what">socios que dejaron el papel</span>
         </a>
       </div>
 
+      <p class="hero-band hero-band--bottom">
+        <span>Pago único</span>
+        <span>Instalación incluida</span>
+        <span>Soporte continuo</span>
+      </p>
+
     </div>
+
+    <div class="hero-foot">
+      <p class="hero-subhead">
+        Sistemas hechos para cómo trabaja tu negocio, no plantillas genéricas.
+        Yo lo instalo, capacito a tu equipo y me quedo de soporte.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-kawi btn-kawi--primary" (click)="onAnchorClick($event, 'contacto')">
+          Hablar conmigo
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="#casos" class="btn-kawi btn-kawi--ghost" (click)="onAnchorClick($event, 'casos')">
+          Ver casos
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>

@@ -4,90 +4,201 @@
   display: block;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  padding-block: 2rem 3rem;
-  background: radial-gradient(ellipse at 72% 10%, rgba(3, 11, 252, 0.04) 0%, transparent 60%);
+// El hero es un rótulo: Hubot Sans a todo lo ancho (wdth 125) y en mayúsculas,
+// con bandas separadas por filetes, como la fachada pintada de un negocio.
 
-  // En celular la prueba tiene que asomar en la primera pantalla
-  @media (min-width: $bp-lg) {
-    min-height: calc(100svh - 57px);
-    padding-block: 5rem;
-  }
-}
+// .hero: alto y padding vienen de .slide
 
-
-.hero-layout {
-  display: grid;
-  width: 100%;
-  gap: 2rem;
-
-  @media (min-width: $bp-lg) {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 5rem;
-  }
-}
-
-.hero-content {
-  width: 100%;
-}
-
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: $surface-secondary;
-  border: 1px solid $border-light;
-  padding: 0.4rem 0.875rem;
-  border-radius: $radius-pill;
-  font-size: 0.6875rem;
-  color: $text-secondary;
-  margin-bottom: 1.5rem;
-
-  &-dot {
-    width: 6px;
-    height: 6px;
-    background: $brand-primary;
-    border-radius: 50%;
-    flex-shrink: 0;
-    animation: hero-dot-pulse 2.4s ease-in-out infinite;
-  }
-}
-
-@keyframes hero-dot-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(3, 11, 252, 0.35); }
-  50%       { box-shadow: 0 0 0 5px rgba(3, 11, 252, 0); }
-}
-
-
-.hero-headline {
+.hero-sign {
+  container-type: inline-size;
+  border-block: 3px solid $brand-primary;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin: 0 0 1rem;
-  text-wrap: balance;
-  color: $text-primary;
-}
-
-.hero-emphasis {
+  font-stretch: 125%;
+  text-transform: uppercase;
   color: $brand-primary;
 }
 
+// ---------- BANDAS ---------------------------------------------------------
+
+.hero-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.75rem 0;
+  list-style: none;
+  font-size: clamp(0.6875rem, 1.6cqi, 0.9375rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.hero-band--top {
+  border-bottom: 1px solid $brand-primary;
+  color: $text-primary;
+}
+
+.hero-band--work {
+  display: grid;
+  gap: 0.375rem;
+  border-block: 1px solid $brand-primary;
+  font-size: clamp(0.875rem, 1.7cqi, 1.25rem);
+  font-weight: 700;
+  color: $text-primary;
+
+  li::before {
+    content: '■';
+    margin-right: 0.5em;
+    font-size: 0.6em;
+    vertical-align: 0.2em;
+    color: $brand-primary;
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+
+    li { white-space: nowrap; }
+  }
+}
+
+.hero-band--bottom {
+  border-top: 1px solid $brand-primary;
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+// ---------- TÍTULO ---------------------------------------------------------
+// Cada renglón se ajusta al ancho del rótulo con cqi (medido con la fuente cargada).
+
+.hero-title {
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+  font-family: inherit;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.88;
+  color: inherit;
+}
+
+.hero-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-title-line--1 { font-size: 13.5cqi; }
+.hero-title-line--2 { font-size: 11.6cqi; }
+
+// Pantalla ancha y baja (laptops): el título va en un solo renglón a todo lo ancho,
+// así el rótulo sigue lleno de lado a lado y cabe completo en la diapositiva
+@media (min-width: $bp-lg) and (max-height: 899px) {
+  .hero-title-line--1,
+  .hero-title-line--2 {
+    display: inline;
+    font-size: 6.15cqi;
+  }
+
+  // Angular quita el espacio entre los <span>; se repone aquí
+  .hero-title-line--1 {
+    margin-right: 0.28em;
+  }
+}
+
+.hero-title-line--3 {
+  margin-top: 0.75rem;
+  font-size: clamp(0.8125rem, 2.35cqi, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  color: $text-primary;
+  text-wrap: balance;
+}
+
+// ---------- PRUEBA (los "precios" del rótulo) -----------------------------
+
+.hero-proof {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hero-proof-item {
+  display: grid;
+  align-content: start;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  color: inherit;
+
+  & + & {
+    border-left: 1px solid $brand-primary;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: $bp-md) {
+    padding-block: 1.25rem;
+
+    & + & { padding-left: 1.5rem; }
+  }
+
+  &:hover .hero-proof-figure {
+    color: $brand-primary-hover;
+  }
+}
+
+.hero-proof-client {
+  font-size: clamp(0.6875rem, 1.6cqi, 0.9375rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+}
+
+.hero-proof-figure {
+  font-size: clamp(2.25rem, 11cqi, 7.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  transition: color $transition-fast;
+}
+
+.hero-proof-what {
+  font-family: var(--font-sans);
+  font-stretch: 100%;
+  text-transform: none;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: $text-secondary;
+}
+
+// ---------- PIE: texto corto y acciones ------------------------------------
+
+.hero-foot {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+  }
+}
 
 .hero-subhead {
+  // En celular el rótulo ya lo dice; se quita para que la diapositiva quepa
+  display: none;
   font-family: var(--font-sans);
   font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
   line-height: 1.6;
   color: $text-secondary;
   max-width: 520px;
-  margin-bottom: 1.75rem;
-}
+  margin: 0;
 
+  // Solo con pantalla alta: en laptops chicas el rótulo tiene prioridad
+  @media (min-width: $bp-md) and (min-height: 760px) {
+    display: block;
+  }
+}
 
 .hero-actions {
   display: flex;
@@ -104,129 +215,37 @@
   }
 }
 
+// ---------- ENTRADA ---------------------------------------------------------
+// Un solo momento: el rótulo se "pinta" de izquierda a derecha, banda por banda.
 
-.hero-trust {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  flex-wrap: wrap;
-  margin-top: 1.25rem;
+.hero-sign > * {
+  animation: hero-paint 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.hero-trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.75rem;
-  color: $text-tertiary;
+.hero-band--top    { animation-delay: 0s; }
+.hero-title        { animation-delay: 0.08s; }
+.hero-band--work   { animation-delay: 0.2s; }
+.hero-proof        { animation-delay: 0.3s; }
+.hero-band--bottom { animation-delay: 0.4s; }
 
-  svg { color: $brand-primary; }
+.hero-foot {
+  animation: hero-paint 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s backwards;
 }
 
-.hero-trust-divider {
-  display: none;
-  font-size: 0.75rem;
-  color: $border-strong;
-
-  @media (min-width: $bp-md) {
-    display: inline;
-  }
-}
-
-
-.hero-proof {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid $border-light;
-}
-
-.hero-proof-label {
-  margin: 0;
-  padding: 1rem 0 0.25rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: $text-tertiary;
-}
-
-.hero-proof-item {
-  display: grid;
-  gap: 0.25rem;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid $border-light;
-  color: inherit;
-
-  > * { transition: transform $transition-base; }
-
-  &:hover {
-    > * { transform: translateX(0.5rem); }
-    .hero-proof-client { color: $brand-primary; }
-  }
-}
-
-.hero-proof-client {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: $text-secondary;
-  transition: color $transition-fast;
-}
-
-.hero-proof-figure {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: $brand-primary;
-  font-variant-numeric: tabular-nums;
-
-  small {
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    color: $text-secondary;
-  }
-}
-
-.hero-proof-what {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: $text-secondary;
-  max-width: 44ch;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-eyebrow-dot {
-    animation: none;
-    box-shadow: none;
-  }
-
-  .hero-proof-item:hover > * { transform: none; }
-}
-
-
-.hero-content > * {
-  animation: hero-reveal 0.7s ease-out backwards;
-}
-
-.hero-eyebrow  { animation-delay: 0s;     }
-.hero-headline { animation-delay: 0.12s;  }
-.hero-subhead  { animation-delay: 0.24s;  }
-.hero-actions  { animation-delay: 0.36s;  }
-.hero-trust    { animation-delay: 0.48s;  }
-
-.hero-proof {
-  animation: hero-reveal 0.7s ease-out backwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes hero-reveal {
+@keyframes hero-paint {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    clip-path: inset(0 100% 0 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sign > *,
+  .hero-foot {
+    animation: none;
   }
 }
