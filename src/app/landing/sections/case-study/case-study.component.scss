@@ -241,27 +241,3 @@
 }
 
 
-// ---------- QUOTE BLOCK ---------------------------------------------------
-
-.case-study-quote {
-  margin: 0;
-  padding-left: 1.25rem;
-  border-left: 3px solid $brand-primary;
-
-  p {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.6;
-    color: $text-primary;
-    margin-bottom: 0.5rem;
-  }
-
-  cite {
-    font-family: var(--font-sans);
-    font-style: normal;
-    font-size: 0.8125rem;   // 13px
-    color: $text-tertiary;
-    display: block;
-  }
-}

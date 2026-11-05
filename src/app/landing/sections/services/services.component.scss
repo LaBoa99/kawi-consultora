@@ -36,8 +36,8 @@
   display: grid;
   gap: 1rem;
 
-  @media (min-width: $bp-md) {
-    grid-template-columns: 1fr 1fr;
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -63,31 +63,6 @@
       color: $brand-primary;
     }
   }
-
-  &--featured {
-    border: 2px solid $brand-primary;
-    background: linear-gradient(145deg, $surface-primary 55%, rgba(240, 241, 255, 0.55) 100%);
-
-    &:hover {
-      border-color: $brand-primary-hover;
-      box-shadow: 0 8px 24px rgba(3, 11, 252, 0.1);
-    }
-  }
-}
-
-.services-card-badge {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $brand-primary;
-  background: $brand-primary-soft;
-  padding: 0.25rem 0.625rem;
-  border-radius: $radius-pill;
-  margin-bottom: 1rem;
-  align-self: flex-start;
 }
 
 .services-card-icon {
@@ -101,11 +76,6 @@
   margin-bottom: 1.25rem;
   color: $text-primary;
   transition: background $transition-base, color $transition-base;
-
-  .services-card--featured & {
-    background: $brand-primary-soft;
-    color: $brand-primary;
-  }
 }
 
 .services-card-title {

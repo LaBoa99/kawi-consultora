@@ -7,10 +7,10 @@
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="#servicios" class="nav-link" [class.nav-link--active]="isActive('servicios')" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
       <li><a href="#casos"     class="nav-link" [class.nav-link--active]="isActive('casos')"     (click)="onNavClick($event, 'casos')">Casos</a></li>
+      <li><a href="#servicios" class="nav-link" [class.nav-link--active]="isActive('servicios')" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
       <li><a href="#proceso"   class="nav-link" [class.nav-link--active]="isActive('proceso')"   (click)="onNavClick($event, 'proceso')">Proceso</a></li>
-      <li><a href="#sobre"     class="nav-link" [class.nav-link--active]="isActive('sobre')"     (click)="onNavClick($event, 'sobre')">Sobre</a></li>
+      <li><a routerLink="/equipo" class="nav-link" routerLinkActive="nav-link--active" ariaCurrentWhenActive="page">Equipo</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -36,10 +36,10 @@
   <!-- Menú mobile desplegable -->
   <div class="nav-mobile-menu" id="nav-mobile-menu" [ngClass]="{ 'nav-mobile-menu--open': menuOpen() }">
     <ul class="nav-mobile-links" role="list">
-      <li><a href="#servicios" class="nav-mobile-link" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
       <li><a href="#casos"     class="nav-mobile-link" (click)="onNavClick($event, 'casos')">Casos</a></li>
+      <li><a href="#servicios" class="nav-mobile-link" (click)="onNavClick($event, 'servicios')">Servicios</a></li>
       <li><a href="#proceso"   class="nav-mobile-link" (click)="onNavClick($event, 'proceso')">Proceso</a></li>
-      <li><a href="#sobre"     class="nav-mobile-link" (click)="onNavClick($event, 'sobre')">Sobre</a></li>
+      <li><a routerLink="/equipo" class="nav-mobile-link" ariaCurrentWhenActive="page" routerLinkActive (click)="closeMenu()">Equipo</a></li>
       <li><a href="#contacto"  class="nav-mobile-link nav-mobile-link--cta" (click)="onNavClick($event, 'contacto')">Hablar conmigo →</a></li>
     </ul>
   </div>

@@ -1,6 +1,7 @@
 // src/app/app.component.ts
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,4 +9,9 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   template: '<router-outlet />',
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor() {
+    // Al llegar a /#casos desde otra página, que el nav fijo no tape el inicio de la sección.
+    inject(ViewportScroller).setOffset([0, 80]);
+  }
+}

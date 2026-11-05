@@ -82,10 +82,11 @@
     padding: 2.5rem 3rem;
     background: $surface-primary;
     border: 1px solid $border-light;
-    border-left: 3px solid $brand-primary;
-    border-radius: 0 $radius-lg $radius-lg 0;
+    border-radius: $radius-lg;
 
     .process-step-num {
+      background: $brand-primary;
+      color: $text-inverse;
       grid-column: 1;
       grid-row: 1 / 4;
       align-self: center;

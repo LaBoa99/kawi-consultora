@@ -1,15 +1,15 @@
 // src/app/landing/sections/nav/nav.component.ts
 
 import { Component, inject, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { ScrollService } from '../../../shared/scroll.service';
 
-const NAV_SECTIONS = ['servicios', 'casos', 'proceso', 'sobre', 'contacto'];
+const NAV_SECTIONS = ['hero', 'casos', 'servicios', 'proceso', 'contacto'];
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterLink, NgClass],
+  imports: [RouterLink, RouterLinkActive, NgClass],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
@@ -53,7 +53,7 @@ export class NavComponent implements OnInit, OnDestroy {
   onNavClick(event: MouseEvent, targetId: string): void {
     event.preventDefault();
     this.closeMenu();
-    this.scroll.scrollTo(targetId);
+    this.scroll.go(targetId);
   }
 
   isActive(id: string): boolean {

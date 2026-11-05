@@ -185,16 +185,23 @@
 // ---------- MENÚ MOBILE DESPLEGABLE ---------------------------------------
 
 .nav-mobile-menu {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height $transition-slow;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows $transition-slow, visibility 0s linear 300ms;
   border-top: 1px solid transparent;
   // Más opaco que el nav para que los links sean legibles
   background: rgba(255, 255, 255, 0.92);
 
   &--open {
-    max-height: 320px;
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows $transition-slow, visibility 0s;
     border-top-color: rgba(0, 0, 0, 0.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 
   @media (min-width: $bp-md) {
@@ -205,7 +212,13 @@
 .nav-mobile-links {
   list-style: none;
   margin: 0;
-  padding: 0.75rem 0 1rem;
+  padding: 0;
+  min-height: 0;
+  overflow: hidden;
+
+  // El padding va en los li: en el ul seguiría visible con el menú cerrado
+  > li:first-child { padding-top: 0.75rem; }
+  > li:last-child { padding-bottom: 1rem; }
 }
 
 .nav-mobile-link {

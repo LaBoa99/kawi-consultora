@@ -13,6 +13,6 @@ export class FooterComponent {
 
   onAnchorClick(event: MouseEvent, targetId: string): void {
     event.preventDefault();
-    this.scroll.scrollTo(targetId);
+    this.scroll.go(targetId);
   }
 }

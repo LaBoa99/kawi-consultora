@@ -1,9 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { animate } from 'animejs';
 
 @Injectable({ providedIn: 'root' })
 export class ScrollService {
   private readonly reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  private readonly router = inject(Router);
+
+  // Para los links del nav y el footer: en la landing hace scroll;
+  // desde otra página (/equipo) regresa a la landing y el router baja a la sección.
+  go(id: string): void {
+    if (document.getElementById(id)) {
+      this.scrollTo(id);
+    } else {
+      this.router.navigate(['/'], { fragment: id });
+    }
+  }
 
   scrollTo(id: string): void {
     const target = document.getElementById(id);

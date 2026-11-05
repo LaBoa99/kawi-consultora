@@ -5,18 +5,23 @@
 }
 
 .hero {
-  min-height: calc(100svh - 57px);
   display: flex;
   align-items: center;
-  padding-block: clamp(3rem, 6vw, 5rem);
+  padding-block: 2rem 3rem;
   background: radial-gradient(ellipse at 72% 10%, rgba(3, 11, 252, 0.04) 0%, transparent 60%);
+
+  // En celular la prueba tiene que asomar en la primera pantalla
+  @media (min-width: $bp-lg) {
+    min-height: calc(100svh - 57px);
+    padding-block: 5rem;
+  }
 }
 
 
 .hero-layout {
   display: grid;
   width: 100%;
-  gap: 3rem;
+  gap: 2rem;
 
   @media (min-width: $bp-lg) {
     grid-template-columns: 1fr 1fr;
@@ -119,102 +124,84 @@
 }
 
 .hero-trust-divider {
+  display: none;
   font-size: 0.75rem;
   color: $border-strong;
-}
 
-
-.hero-visual {
-  display: none;
-  justify-content: center;
-  align-items: center;
-
-  @media (min-width: $bp-lg) {
-    display: flex;
+  @media (min-width: $bp-md) {
+    display: inline;
   }
 }
 
-.hero-svg {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  overflow: visible;
+
+.hero-proof {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $border-light;
 }
 
-.hero-svg-back {
-  transform-origin: 210px 226px;
-  animation: hero-float-back 7s ease-in-out infinite;
+.hero-proof-label {
+  margin: 0;
+  padding: 1rem 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $text-tertiary;
 }
 
-.hero-svg-mid {
-  transform-origin: 210px 226px;
-  animation: hero-float-mid 9s ease-in-out infinite;
+.hero-proof-item {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid $border-light;
+  color: inherit;
+
+  > * { transition: transform $transition-base; }
+
+  &:hover {
+    > * { transform: translateX(0.5rem); }
+    .hero-proof-client { color: $brand-primary; }
+  }
 }
 
-.hero-svg-front {
-  transform-origin: 210px 204px;
-  animation: hero-float-front 5.5s ease-in-out infinite;
+.hero-proof-client {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-secondary;
+  transition: color $transition-fast;
 }
 
-.hero-svg-ring {
-  animation: hero-float-ring 8s ease-in-out infinite;
+.hero-proof-figure {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: $brand-primary;
+  font-variant-numeric: tabular-nums;
+
+  small {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: $text-secondary;
+  }
 }
 
-.hero-svg-dot {
-  animation: hero-float-dot 6s ease-in-out infinite;
-}
-
-.hero-svg-stat-card {
-  transform-origin: 318px 366px;
-  animation: hero-float-stat 7.5s ease-in-out infinite;
-}
-
-@keyframes hero-float-stat {
-  0%, 100% { transform: translateY(0) rotate(1.5deg);  }
-  50%       { transform: translateY(-9px) rotate(1.5deg); }
-}
-
-@keyframes hero-float-back {
-  0%, 100% { transform: rotate(-9deg) translateY(0);    }
-  50%       { transform: rotate(-9deg) translateY(-14px); }
-}
-
-@keyframes hero-float-mid {
-  0%, 100% { transform: rotate(5deg) translateY(0);   }
-  50%       { transform: rotate(5deg) translateY(10px); }
-}
-
-@keyframes hero-float-front {
-  0%, 100% { transform: translateY(0);    }
-  50%       { transform: translateY(-8px); }
-}
-
-@keyframes hero-float-ring {
-  0%, 100% { transform: translateY(0);     }
-  50%       { transform: translateY(-10px); }
-}
-
-@keyframes hero-float-dot {
-  0%, 100% { transform: translateY(0);   }
-  50%       { transform: translateY(6px); }
+.hero-proof-what {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: $text-secondary;
+  max-width: 44ch;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-svg-back,
-  .hero-svg-mid,
-  .hero-svg-front,
-  .hero-svg-ring,
-  .hero-svg-dot,
-  .hero-svg-stat-card,
   .hero-eyebrow-dot {
     animation: none;
-    transform: none;
     box-shadow: none;
   }
 
-  .hero-svg-back      { transform: rotate(-9deg); }
-  .hero-svg-mid       { transform: rotate(5deg);  }
-  .hero-svg-stat-card { transform: rotate(1.5deg); }
+  .hero-proof-item:hover > * { transform: none; }
 }
 
 
@@ -228,9 +215,9 @@
 .hero-actions  { animation-delay: 0.36s;  }
 .hero-trust    { animation-delay: 0.48s;  }
 
-.hero-visual {
+.hero-proof {
   animation: hero-reveal 0.7s ease-out backwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 @keyframes hero-reveal {

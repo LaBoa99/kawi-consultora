@@ -1,0 +1,313 @@
+@use 'styles/variables' as *;
+
+:host {
+  display: block;
+}
+
+.equipo {
+  // El nav es fijo: deja espacio arriba.
+  padding-top: 7.5rem;
+  padding-bottom: $section-padding-y-md;
+  min-height: 80vh;
+
+  @media (min-width: $bp-md) {
+    padding-top: 9rem;
+    padding-bottom: $section-padding-y;
+  }
+}
+
+
+// ---------- MONOGRAMA (iniciales, sin fotos) --------------------------------
+
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(3, 11, 252, 0.07);
+  color: $brand-primary;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  user-select: none;
+
+  &--lg {
+    width: 72px;
+    height: 72px;
+    font-size: 1.875rem;
+    background: $brand-primary;
+    color: $text-inverse;
+    box-shadow: 0 0 0 4px $brand-primary-soft;
+  }
+}
+
+
+// ---------- /equipo ---------------------------------------------------------
+
+.equipo-header {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.equipo-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.equipo-intro {
+  color: $text-secondary;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.team-list {
+  border-top: 1px solid $border-medium;
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0.5rem;
+  border-bottom: 1px solid $border-medium;
+  color: $text-primary;
+  transition: background $transition-base;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  &:hover {
+    background: $surface-secondary;
+
+    .team-row-arrow {
+      color: $brand-primary;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.team-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.team-row-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.team-row-role {
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.team-row-count {
+  display: none;
+  font-size: 0.8125rem;
+  color: $text-secondary;
+  font-variant-numeric: tabular-nums;
+
+  @media (min-width: $bp-md) {
+    display: block;
+  }
+}
+
+.team-row-arrow {
+  color: $text-tertiary;
+  transition: transform $transition-base, color $transition-base;
+}
+
+
+// ---------- /equipo/:slug ---------------------------------------------------
+
+.perfil-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: $bp-md) {
+    gap: 1.75rem;
+  }
+
+  &--missing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.perfil-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.perfil-role {
+  margin-top: 0.25rem;
+  color: $text-secondary;
+}
+
+.perfil-bio {
+  max-width: 65ch;
+  color: $text-secondary;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+
+  p + p {
+    margin-top: 1rem;
+  }
+}
+
+.perfil-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+
+  a {
+    color: $text-primary;
+    text-decoration: underline;
+    text-decoration-color: $border-strong;
+    text-underline-offset: 4px;
+    transition: text-decoration-color $transition-fast, color $transition-fast;
+
+    &:hover {
+      color: $brand-primary;
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+.perfil-projects {
+  margin-top: 4rem;
+
+  @media (min-width: $bp-md) {
+    margin-top: 5rem;
+  }
+}
+
+.perfil-projects-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $border-medium;
+}
+
+.project {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid $border-light;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    column-gap: 3rem;
+    padding-block: 2rem;
+  }
+}
+
+.project-head,
+.project-body {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.project-context {
+  font-size: 0.8125rem;
+  color: $text-secondary;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.project-summary {
+  color: $text-secondary;
+  line-height: 1.65;
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+.project-stack {
+  font-size: 0.8125rem;
+  color: $text-secondary;
+}
+
+.project-link {
+  justify-self: start;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $brand-primary;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.perfil-empty {
+  padding-block: 2rem;
+  color: $text-secondary;
+}
+
+.perfil-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: $radius-xl;
+  background: $surface-secondary;
+}
+
+.perfil-cta-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.team-list,
+.perfil-links {
+  list-style: none;
+  padding: 0;
+}

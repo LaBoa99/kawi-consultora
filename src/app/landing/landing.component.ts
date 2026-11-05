@@ -6,7 +6,6 @@ import { HeroComponent } from './sections/hero/hero.component';
 import { CaseStudyComponent } from './sections/case-study/case-study.component';
 import { ServicesComponent } from './sections/services/services.component';
 import { ProcessComponent } from './sections/process/process.component';
-import { AboutGaelComponent } from './sections/about-gael/about-gael.component';
 import { CtaFinalComponent } from './sections/cta-final/cta-final.component';
 import { FooterComponent } from './sections/footer/footer.component';
 
@@ -18,7 +17,6 @@ import { FooterComponent } from './sections/footer/footer.component';
     CaseStudyComponent,
     ServicesComponent,
     ProcessComponent,
-    AboutGaelComponent,
     CtaFinalComponent,
     FooterComponent,
   ],
@@ -29,7 +27,6 @@ import { FooterComponent } from './sections/footer/footer.component';
       <app-case-study />
       <app-services />
       <app-process />
-      <app-about-gael />
       <app-cta-final />
     </main>
     <app-footer />
